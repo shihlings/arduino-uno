@@ -2,7 +2,7 @@
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
-char receive[33] = {'\n'}; //Initialized variable to store recieved data
+char receive[33] = "Printing Serial Input Data...\n"; //Initialized variable to store recieved data
 
 void setup() {
   // Begin the Serial at 9600 Baud
@@ -18,7 +18,7 @@ void loop() {
   lcd.setCursor(0,0);
 
   for (int index = 0; index < 33 && abort == 0; ++index) {
-    if (receive[index] == '\n') {
+    if (receive[index] == '\n' || index == 32) {
       abort = index;
     }
   }
